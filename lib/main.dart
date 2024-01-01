@@ -1,12 +1,15 @@
 // ignore_for_file: unnecessary_this, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-// import 'package:learn_flutter/pages/counter_page.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:learn_flutter/pages/todo_page.dart';
-// import 'package:learn_flutter/pages/first_page.dart';
-// import 'package:learn_flutter/pages/second_page.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  // init a hive
+  await Hive.initFlutter();
+  await Hive.openBox("todobox");
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
